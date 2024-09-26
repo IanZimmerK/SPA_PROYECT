@@ -29,7 +29,6 @@ const CardLanding: React.FC<ICard> = ({ id, nombre, descripcion, precio }) => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("entra");
 
     const turnoData = {
       servicioId: id,
@@ -38,21 +37,34 @@ const CardLanding: React.FC<ICard> = ({ id, nombre, descripcion, precio }) => {
     };
 
     dispatch<any>(crearTurno(turnoData, token as string));
-
     setIsFormVisible(false);
   };
 
   const handleReserve = () => {
     setIsFormVisible(true); // Mostrar el formulario al hacer clic en "Reservar"
   };
+
   return (
     <div
       id={id}
-      className="bg-white rounded-lg shadow-lg p-8 hover:shadow-2xl transition-shadow transform hover:scale-105"
+      className="border-2 border-[#cb0c4f] backdrop-blur-lg bg-white bg-opacity-30 rounded-lg p-8 hover:shadow-2xl transition-transform transform hover:scale-105 shadow-lg"
     >
-      <h2 className="text-3xl font-bold text-[#cb0c4f] mb-4">{nombre}</h2>
-      <p className="text-gray-600 mb-6 leading-relaxed">{descripcion}</p>
-      <p className="text-gray-600 mb-6 leading-relaxed text-xl">
+      <h2
+        className="text-3xl font-bold mb-4"
+        style={{ fontFamily: "Lato, sans-serif", color: "#cb0c4f" }}
+      >
+        {nombre}
+      </h2>
+      <p
+        className="text-gray-600 mb-6 leading-relaxed"
+        style={{ fontFamily: "Lato, sans-serif" }}
+      >
+        {descripcion}
+      </p>
+      <p
+        className="text-gray-600 mb-6 leading-relaxed text-xl"
+        style={{ fontFamily: "Lato, sans-serif" }}
+      >
         Precio: ${precio}
       </p>
       {isFormVisible && (
@@ -65,6 +77,7 @@ const CardLanding: React.FC<ICard> = ({ id, nombre, descripcion, precio }) => {
               <label
                 htmlFor="calendar"
                 className="block text-lg font-medium text-gray-700 mb-2"
+                style={{ fontFamily: "Lato, sans-serif" }}
               >
                 Selecciona la Fecha:
               </label>
@@ -79,6 +92,7 @@ const CardLanding: React.FC<ICard> = ({ id, nombre, descripcion, precio }) => {
               <label
                 htmlFor="time"
                 className="block text-lg font-medium text-gray-700 mb-2"
+                style={{ fontFamily: "Lato, sans-serif" }}
               >
                 Selecciona la Hora:
               </label>

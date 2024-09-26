@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios"; // Asume que usarás axios para hacer solicitudes a tu backend.
-import Whatsapp from "../../../public/assets/whatsapp.svg";
+import Whatsapp from "../../../public/assets/WhatsApp.svg";
 import { useSelector } from "react-redux";
 
 interface ITurno {
