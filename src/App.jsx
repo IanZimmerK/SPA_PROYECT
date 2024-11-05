@@ -91,52 +91,17 @@ function App() {
             />
              <Route
               path="/listadoClientes"
-              element={
-                <ProtectedAdminAppRoute>
+              element={             
                   <ListadoClientes />
-                </ProtectedAdminAppRoute>
               }
             />
             <Route
             path="/ServiciosApp"
             element={
-              <ProtectedAdminAppRoute>
+        
                 <ServicesListApp />
-              </ProtectedAdminAppRoute>
             }
           />
-            <Route
-              path="/listadoClientesDia"
-              element={
-                <ProtectedAdminAppRoute>         
-                  <ListadoClientesPorDia />
-                </ProtectedAdminAppRoute>
-              }
-            />
-            <Route
-              path="/listadoClientesProfesional"
-              element={
-                <ProtectedAdminAppRoute>
-                  <ListadoClientesPorProfesional />
-                </ProtectedAdminAppRoute>
-              }
-            />
-            <Route
-              path="/informeServicios"
-              element={
-                <ProtectedAdminAppRoute>
-                  <ReportFormApp />
-                </ProtectedAdminAppRoute>
-              }
-            />
-            <Route
-              path="/informeIngresos"
-              element={
-                <ProtectedAdminAppRoute>
-                  <ReportIngresosApp />
-                </ProtectedAdminAppRoute>
-              }
-            />
             <Route
               path="/homeProfesional"
               element={
@@ -148,17 +113,28 @@ function App() {
             <Route
               path="/informeServicios"
               element={
-                <ProtectedProfessionalRoute>
                   <ReportFormApp />
-                </ProtectedProfessionalRoute>
               }
             />
             <Route
               path="/informeIngresos"
               element={
-                <ProtectedProfessionalRoute>
+           
                   <ReportIngresosApp />
-                </ProtectedProfessionalRoute>
+              }
+            />
+            <Route
+              path="/listadoClientesDia"
+              element={
+                    
+                  <ListadoClientesPorDia />
+               
+              }
+            />
+            <Route
+              path="/listadoClientesProfesional"
+              element={
+                  <ListadoClientesPorProfesional />
               }
             />
             <Route

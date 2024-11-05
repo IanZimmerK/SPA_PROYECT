@@ -99,7 +99,7 @@ const RegistrarPagoApp: React.FC = () => {
         showConfirmButton: false,
         timer: 1500,
       }).then(() => {
-        navigate("/home");
+        navigate("/home-app");
       });
 
       setFormData({

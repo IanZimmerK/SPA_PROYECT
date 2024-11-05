@@ -69,14 +69,6 @@ const LandingSecretariaApp: React.FC = () => {
           }}
         ></div>
 
-        {user && (
-          <button
-            onClick={handleLogout}
-            className="absolute top-5 left-5 bg-[#cb0c4f] text-white font-semibold py-2 px-4 rounded shadow hover:bg-pink-600 z-20"
-          >
-            Cerrar Sesión
-          </button>
-        )}
 
         {logoutMessage && (
           <div className="absolute top-5 right-5 bg-green-500 text-white font-semibold py-2 px-4 rounded shadow z-20">

@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { logoutUser } from "../../redux/userAction";
 import { FaBars, FaTimes } from "react-icons/fa";
+import { useSelector } from "react-redux";
 
 const SidebarAdminApp: React.FC = () => {
   const [isOpen, setIsOpen] = useState(true);
@@ -14,6 +15,7 @@ const SidebarAdminApp: React.FC = () => {
     localStorage.removeItem("token");
     navigate("/");
   };
+  const { user } = useSelector((state:any) => state.users);
 
   const toggleSidebar = () => setIsOpen(!isOpen);
 
@@ -35,6 +37,18 @@ const SidebarAdminApp: React.FC = () => {
         <div className={`p-6 ${isOpen ? "visible" : "invisible"} transition-opacity duration-300 ease-in-out`}>
           <h2 className="text-2xl font-bold mb-8 text-center">Panel de Administración</h2>
           <ul className="space-y-4">
+          { user?.userType === "secretaria" &&  
+          <>
+          <li>
+              <Link
+                to="/homeSecretaria"
+                className="hover:bg-green-700 hover:text-white text-white p-3 block rounded-lg transition duration-300 ease-in-out text-center"
+              >
+                Pagos Realizados
+              </Link>
+            </li>
+            </>
+            }
             <li>
               <Link
                 to="/listadoClientes"
@@ -51,6 +65,8 @@ const SidebarAdminApp: React.FC = () => {
                 Listado de clientes a atender por día
               </Link>
             </li>
+            { user?.userType === "admin" &&   
+            <>
             <li>
               <Link
                 to="/listadoClientesProfesional"
@@ -58,15 +74,18 @@ const SidebarAdminApp: React.FC = () => {
               >
                 Listado de clientes por profesional
               </Link>
-            </li>
-            <li>
-              <Link
-                to="/ServiciosApp"
-                className="hover:bg-green-700 hover:text-white text-white p-3 block rounded-lg transition duration-300 ease-in-out text-center"
-              >
-                Servicios
-              </Link>
-            </li>
+            </li> 
+             <li>
+             <Link
+               to="/ServiciosApp"
+               className="hover:bg-green-700 hover:text-white text-white p-3 block rounded-lg transition duration-300 ease-in-out text-center"
+             >
+               Servicios
+             </Link>
+           </li>
+           </>
+            }
+           
             <li>
               <Link
                 to="/informeServicios"
